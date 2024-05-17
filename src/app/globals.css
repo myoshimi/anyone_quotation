@@ -16,18 +16,51 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.App {
+    padding: 50px;
+    width: 700px;
+    border: 2px solid green;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* 全体のレイアウトを固定 */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5; /* 薄いグレーの背景色 */
+    font-family: Arial, sans-serif;
+   overflow: hidden; /* 余分なスクロールバーを防ぐため */
+}
+
+/* ヘッダとフッタのスタイルを設定 */
+header, footer {
+    height: 100px; /* 固定の高さを設定 */
+    flex-shrink: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* コンテンツエリアをスクロール可能に */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    height: calc(100vh - 120px); /* ヘッダとフッタの高さを引いた高さ */
 }
