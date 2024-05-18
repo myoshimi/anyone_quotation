@@ -1,4 +1,0 @@
-antd
-tailwindcss
-compat
-appwrite
