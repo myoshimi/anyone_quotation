@@ -1,35 +1,36 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Upload, Button, Row, Col, List, Typography } from "antd";
-import { InboxOutlined, DeleteOutlined } from "@ant-design/icons";
-import type { UploadFile, UploadProps, UploadChangeParam } from "antd/lib/upload/interface";
+import { useState } from 'react';
+import { Upload, Button, Row, Col, List, Typography } from 'antd';
+import { InboxOutlined, DeleteOutlined } from '@ant-design/icons';
+import type { UploadFile, UploadProps, UploadChangeParam } from 'antd/lib/upload/interface';
 
 const { Dragger } = Upload;
 
 const props: UploadProps = {
-    name: "upload_files",
+    name: 'upload_files',
     multiple: true,
-    action: "",
-    beforeUpload: (file) => {
+    action: '',
+    beforeUpload: () => {
         return false; // prevent automatic upload
     },
-    listType: "text",
+    listType: 'text',
 };
 
 export const FormAttachedFiles: React.FC = () => {
     const [fileList, setFileList] = useState<UploadFile[]>([]);
 
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const onChange = (info: UploadChangeParam<UploadFile<any>>) => {
         setFileList(info.fileList);
     };
 
     const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
-        console.log("Dropped files", e.dataTransfer.files);
+        console.log('Dropped files', e.dataTransfer.files);
     };
 
     const handleUpload = () => {
-        console.log("uploading files: ", fileList);
+        console.log('uploading files: ', fileList);
         // Perform the actual upload logic here, e.g., using axios to send files to the server
     };
 
@@ -77,7 +78,7 @@ export const FormAttachedFiles: React.FC = () => {
                                         <DeleteOutlined
                                             key="delete"
                                             onClick={() => handleRemove(item)}
-                                            style={{ color: "red" }}
+                                            style={{ color: 'red' }}
                                         />,
                                     ]}
                                 >

@@ -1,8 +1,8 @@
-"use client";
-import LoginPage from "./LoginPage";
-import { FormAttachedFiles } from "./FormAttachedFiles";
-import { Row, Col, Typography } from "antd";
-import { FormText } from "./FormText";
+'use client';
+import LoginPage from './LoginPage';
+import { FormAttachedFiles } from './FormAttachedFiles';
+import { Row, Col } from 'antd';
+import { FormText } from './FormText';
 
 export default function Home() {
     return (

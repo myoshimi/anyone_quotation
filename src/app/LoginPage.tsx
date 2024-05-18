@@ -1,18 +1,19 @@
-"use client";
-import { useState } from "react";
-import { account, ID } from "../lib/appwrite";
-import { Models } from "appwrite";
+'use client';
+import { useState } from 'react';
+import { account, ID } from '../lib/appwrite';
+import { Models } from 'appwrite';
 
-import { Input, Button, Space } from "antd";
+import { Input, Button } from 'antd';
 
 const LoginPage = () => {
     const [loggedInUser, setLoggedInUser] = useState<Models.User<Models.Preferences> | null>(null);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
 
-    const login = async (email: string, password: string) => {
-        const session: Models.Session = await account.createEmailPasswordSession(email, password);
+    const login = async (loginEmail: string, loginPassword: string) => {
+        // const session: Models.Session = await account.createEmailPasswordSession(loginEmail, loginPassword);
+        await account.createEmailPasswordSession(loginEmail, loginPassword);
         const user: Models.User<Models.Preferences> = await account.get();
         setLoggedInUser(user);
     };
@@ -23,7 +24,7 @@ const LoginPage = () => {
     };
 
     const logout = async () => {
-        await account.deleteSession("current");
+        await account.deleteSession('current');
         setLoggedInUser(null);
     };
 
