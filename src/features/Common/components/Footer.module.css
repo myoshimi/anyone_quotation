@@ -1,0 +1,24 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff; /* 背景色を必要に応じて変更してください */
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 上に影を追加して見た目を改善 */
+    z-index: 1000; /* フッターを前面に表示するためのz-index */
+    height: 60px; /* フッターの高さ */
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer li {
+    margin: 0;
+}

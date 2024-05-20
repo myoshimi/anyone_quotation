@@ -13,9 +13,13 @@ export const LoginForm = () => {
 
     const login = async (loginEmail: string, loginPassword: string) => {
         // const session: Models.Session = await account.createEmailPasswordSession(loginEmail, loginPassword);
-        await account.createEmailPasswordSession(loginEmail, loginPassword);
-        const user: Models.User<Models.Preferences> = await account.get();
-        setLoggedInUser(user);
+        try {
+            await account.createEmailPasswordSession(loginEmail, loginPassword);
+            const user: Models.User<Models.Preferences> = await account.get();
+            setLoggedInUser(user);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     const register = async () => {
@@ -65,6 +69,11 @@ export const LoginForm = () => {
                 <div>
                     <Button type="default" onClick={register}>
                         Register
+                    </Button>
+                </div>
+                <div>
+                    <Button type="primary" onClick={logout}>
+                        Logout
                     </Button>
                 </div>
             </form>

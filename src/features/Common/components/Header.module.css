@@ -1,0 +1,16 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff; /* 背景色を必要に応じて変更してください */
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 下に影を追加して見た目を改善 */
+    z-index: 1000; /* ヘッダーを前面に表示するためのz-index */
+    height: 60px; /* ヘッダーの高さ */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem; /* フォントサイズを必要に応じて変更してください */
+}
